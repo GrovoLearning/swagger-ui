@@ -52,32 +52,32 @@ export const isOAS3 = createSelector(
   // It's not perfect, but our hybrid (core+plugin code) implementation for OAS3
   // needs this. //KS
   spec,
-	() => false
+  () => false
 )
 
 export const info = createSelector(
   spec,
-	spec => returnSelfOrNewMap(spec && spec.get("info"))
+  spec => returnSelfOrNewMap(spec && spec.get("info"))
 )
 
 export const externalDocs = createSelector(
   spec,
-	spec => returnSelfOrNewMap(spec && spec.get("externalDocs"))
+  spec => returnSelfOrNewMap(spec && spec.get("externalDocs"))
 )
 
 export const version = createSelector(
-	info,
-	info => info && info.get("version")
+  info,
+  info => info && info.get("version")
 )
 
 export const semver = createSelector(
-	version,
-	version => /v?([0-9]*)\.([0-9]*)\.([0-9]*)/i.exec(version).slice(1)
+  version,
+  version => /v?([0-9]*)\.([0-9]*)\.([0-9]*)/i.exec(version).slice(1)
 )
 
 export const paths = createSelector(
-	spec,
-	spec => spec.get("paths")
+  spec,
+  spec => spec.get("paths")
 )
 
 export const operations = createSelector(
@@ -256,7 +256,7 @@ export const mutatedRequestFor = (state, path, method) => {
 
 export const allowTryItOutFor = () => {
   // This is just a hook for now.
-  return true
+  return false
 }
 
 // Get the parameter value by parameter name

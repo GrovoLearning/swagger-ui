@@ -22,7 +22,6 @@ export default class StandaloneLayout extends React.Component {
 
     const Topbar = getComponent("Topbar", true)
     const BaseLayout = getComponent("BaseLayout", true)
-    const OnlineValidatorBadge = getComponent("onlineValidatorBadge", true)
 
     const loadingStatus = specSelectors.loadingStatus()
 
@@ -46,11 +45,6 @@ export default class StandaloneLayout extends React.Component {
           </div>
         }
         { !loadingStatus || loadingStatus === "success" && <BaseLayout /> }
-        <Row>
-          <Col>
-            <OnlineValidatorBadge />
-          </Col>
-        </Row>
       </Container>
     )
   }

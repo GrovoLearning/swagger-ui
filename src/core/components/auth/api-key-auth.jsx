@@ -52,7 +52,7 @@ export default class ApiKeyAuth extends React.Component {
     return (
       <div>
         <h4>
-          <code>{ name || schema.get("name") }</code>&nbsp;
+          <code>{ schema.get("name") }</code>&nbsp;
           (apiKey)
           <JumpToPath path={[ "securityDefinitions", name ]} />
         </h4>
@@ -62,13 +62,6 @@ export default class ApiKeyAuth extends React.Component {
         </Row>
         <Row>
           <p>In: <code>{ schema.get("in") }</code></p>
-        </Row>
-        <Row>
-          <label>Value:</label>
-          {
-            value ? <code> ****** </code>
-                  : <Col><Input type="text" onChange={ this.onChange }/></Col>
-          }
         </Row>
         {
           errors.valueSeq().map( (error, key) => {
